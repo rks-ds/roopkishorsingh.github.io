@@ -74,7 +74,7 @@ body {
     }
 
     .tl-bg {
-      filter: grayscale(0);
+      filter: blur(5px);
     }
   }
 }
