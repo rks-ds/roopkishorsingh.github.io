@@ -5,25 +5,28 @@ div.gallery {
   opacity: .9;
   transition: all .2s;
   align:center;
-  display:inline;  
+  display:inline;
 }
 
 div.gallery:hover {
   border: 1px solid #bbb;
   box-shadow: 0 2px 13px 0 rgba(0,0,0, .5);
   opacity: 1;
+  display:inline;
 }
 
 div.gallery img {
   width: 100%;
   height: auto;
   border-radius: 5px 5px 0 0 ;
+  display:inline;
 }
 
 div.desk {
   padding: 15px;
   text-align: center;
   font-size: .9em;
+  display:inline;
 }
 
 * {
@@ -35,6 +38,7 @@ div.desk {
   padding: 0 5px;
   float: left;
   width: 24.999999%;
+  display:inline;  
 }
 
 @media only screen and (max-width: 700px) {
