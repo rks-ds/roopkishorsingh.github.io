@@ -48,7 +48,7 @@ section#timeline article div.inner span.date {
   left: 50%;
   margin: 0 0 0 -32px;
   border-radius: 100%;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 900;
   text-transform: uppercase;
   background: #25303B;
@@ -67,7 +67,7 @@ section#timeline article div.inner span.date span.month {
   font-size: 18px;
 }
 section#timeline article div.inner span.date span.year {
-  font-size: 20px;
+  font-size: 15px;
 }
 section#timeline article div.inner h2 {
   padding: 15px;
