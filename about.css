@@ -64,8 +64,8 @@ section#timeline article div.inner span.date span.day {
   font-size: 10px;
 }
 section#timeline article div.inner span.date span.month {
-  top:10;
   font-size: 18px;
+  padding: 10px 10px;
 }
 section#timeline article div.inner span.date span.year {
   font-size: 15px;
