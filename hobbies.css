@@ -2,11 +2,16 @@ body {
   font-family: "Source Sans Pro", Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.75;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
 }
 
 #timeline {
   display: flex;
   background-color: #031625;
+  min-height: 100vh;
+  padding: 80px 0;
 
   &:hover {
     .tl-item {
@@ -21,95 +26,34 @@ body {
   width: 25%;
   height: 100vh;
   min-height: 600px;
-  color: black;
+  color: #fff;
   overflow: hidden;
   transition: width 0.5s ease;
+  cursor: pointer;
 
-  &:before,
-  &:after {
-    transform: translate3d(0, 0, 0);
+  &:before {
     content: "";
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-  }
-
-  &:after {
-    background: transparentize(#e0251b, 0.15);
-    opacity: 1;
-    transition: opacity 0.5s ease;
-  }
-
-  &:before {
     background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 1) 75%
+      rgba(0, 0, 0, 0.8) 100%
     );
     z-index: 1;
     opacity: 0;
-    transform: translate3d(0, 0, 0) translateY(50%);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.5s ease;
   }
 
   &:hover {
     width: 30% !important;
-
-    &:after {
-      opacity: 0;
-    }
-
-    &:before {
-      opacity: 1;
-      transform: translate3d(0, 0, 0) translateY(0);
-      transition: opacity 1s ease, transform 1s ease 0.25s;
-    }
-
-    .tl-content {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.75s ease 0.5s;
-    }
-
   }
-}
 
-.tl-content {
-  transform: translate3d(0, 0, 0) translateY(25px);
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  margin: 0 1.618em;
-  top: 55%;
-  opacity: 0;
-
-  h1 {
-    font-family: "Pathway Gothic One", Helvetica Neue, Helvetica, Arial,
-      sans-serif;
-    text-transform: uppercase;
-    color: #1779cf;
-    font-size: 1.44rem;
-    font-weight: normal;
-  }
-}
-
-.tl-year {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  z-index: 1;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-
-  p {
-    font-family: "Pathway Gothic One", Helvetica Neue, Helvetica, Arial,
-      sans-serif;
-    font-size: 10.728rem;
-    line-height: 0;
-    color: black;
+  &:hover:before {
+    opacity: 1;
   }
 }
 
@@ -121,4 +65,82 @@ body {
   left: 0;
   background-size: cover;
   background-position: center center;
+  transition: transform 0.5s ease;
+}
+
+.tl-item:hover .tl-bg {
+  transform: scale(1.1);
+}
+
+.tl-year {
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 2;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(20px);
+  transition: transform 0.5s ease;
+}
+
+.tl-item:hover .tl-year {
+  transform: translateY(0);
+}
+
+.tl-year p {
+  font-family: "Pathway Gothic One", Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1f1f25;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.tl-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 2;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+}
+
+.tl-item:hover .tl-content {
+  transform: translateY(0);
+}
+
+.tl-content h1 {
+  font-family: "Source Sans Pro", Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #1f1f25;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  #timeline {
+    flex-direction: column;
+    padding: 60px 0;
+  }
+
+  .tl-item {
+    width: 100% !important;
+    height: 400px;
+    min-height: auto;
+  }
+
+  .tl-year p {
+    font-size: 2rem;
+  }
+
+  .tl-content {
+    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.9);
+  }
 }
